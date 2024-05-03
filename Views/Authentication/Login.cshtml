@@ -1,0 +1,14 @@
+﻿
+@using HRMS.Models
+@model LoginUser
+
+@using(Html.BeginForm("Login","Authentication",FormMethod.Post,new
+{
+    @id="LoginForm"
+}))
+            {
+               @Html.TextBoxFor(x=>x.Email)
+    @Html.TextBoxFor(x=>x.Password)
+    <button type="submit" name="submit">Submit</button>
+            }
+

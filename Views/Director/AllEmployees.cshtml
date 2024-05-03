@@ -1,0 +1,41 @@
+﻿
+@using HRMS.Models;
+@model List<Employee>
+
+<table class="table table-bordered">
+    <tr>
+        <th>Employee Name</th>
+        <th>Birth-date</th>
+        <th>Gender</td>
+        <th>Role</th>
+        <th>Reporting Person</th>
+        <th>
+            Edit
+        </th>
+        <th>
+            Delete
+        </th>
+    </tr>
+  
+    @foreach (Employee i in Model)
+    {
+        <tr id="@i.EmployeeId">
+
+            <td>@i.FirstName @i.LastName</td>
+            <td>@i.BirthDate</td>
+            <td>@i.Gender</td>
+            <td>@i.Role.Name</td>
+            <td>@i.Employee2.FirstName @i.Employee2.LastName</td>
+            <td>
+                @Html.ActionLink("Edit", "EditEmployee", "Director",
+                   new { id = @i.EmployeeId }, new { @class = "btn btn-primary" })
+            </td>
+            <td>
+                @Html.ActionLink("Delete", "DeleteEmployee", "Director",
+    new { id = @i.EmployeeId }, new { @class = "btn btn-primary" })
+            </td>
+        </tr>
+
+    }
+</table>
+
